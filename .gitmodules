@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vimerl"]
 	path = .vim/bundle/vimerl
 	url = git@github.com:jimenezrick/vimerl.git
+[submodule ".vim/bundle/recover.vim"]
+	path = .vim/bundle/recover.vim
+	url = git@github.com:chrisbra/Recover.vim.git
