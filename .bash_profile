@@ -23,9 +23,9 @@ if [ $(type -t __git_ps1) ]; then
     export GIT_PS1_SHOWDIRTYSTATE=1
     export GIT_PS1_SHOWUNTRACKEDFILES=1
     export GIT_PS1_SHOWSTASHSTATE=1
-    export PS1="$PS1\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]"
+    export PS1="$PS1\[\033[01;33m\]\$(__git_ps1)\[\033[01;34m\]"
 elif [ $(type -t parse_git_branch) ]; then
-    export PS1="$PS1\[\033[01;33m\]$(parse_git_branch)\[\033[01;34m\]"
+    export PS1="$PS1\[\033[01;33m\]\$(parse_git_branch)\[\033[01;34m\]"
 fi
 export PS1="$PS1 \$\[\033[00m\] "
 
