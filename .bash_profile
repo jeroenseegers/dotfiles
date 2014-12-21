@@ -3,7 +3,7 @@
 [ -f ~/.bash_functions ] && . ~/.bash_functions
 
 # OS specific files
-[ $(uname) == "Darwin" ] && source ~/.bash_profile_osx
+[ $(uname -s) == "Darwin" ] && source ~/.bash_profile_osx
 
 # Various settings
 export EDITOR="vim"
@@ -11,7 +11,6 @@ export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export HISTCONTROL=erasedups
 export HISTIGNORE="ll:la:cd:..:cd ..:pwd:"
-export VERSIONER_PYTHON_PREFER_32_BIT=yes
 export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
@@ -30,7 +29,6 @@ fi
 export PS1="$PS1 \$\[\033[00m\] "
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH=/usr/local/lib/erlang/lib/erl_interface-3.7.8/bin:$PATH
 
 # Enable local override
 [ -f ~/.bash_profile_local ] && . ~/.bash_profile_local
