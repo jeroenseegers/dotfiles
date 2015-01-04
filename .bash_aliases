@@ -1,4 +1,4 @@
-alias ll='ls -l --color'
-alias la='ls -la --color'
+alias ll='ls -lG'
+alias la='ls -laG'
 alias ..='cd ..'
 alias s='ssh'

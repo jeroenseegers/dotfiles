@@ -27,6 +27,9 @@ set tabstop=4                   " Number of spaces a <Tab> counts for
 set softtabstop=4               " Number of spaces a <Tab> counts for when editing
 set shiftwidth=4                " Number of spaces to use for (auto)indentation
 
+set title                       " Set window title to filename
+
+" Use the :SW command to write as sudo
 command SW w !sudo tee % > /dev/null
 
 " Load external settings
