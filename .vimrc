@@ -28,6 +28,16 @@ set softtabstop=4               " Number of spaces a <Tab> counts for when editi
 set shiftwidth=4                " Number of spaces to use for (auto)indentation
 
 set title                       " Set window title to filename
+set titleold=""
+set titlestring=%F
+
+" :E(xplorer) settings
+let g:netrw_liststyle=3         " Use the tree listingstyle
+let g:netrw_browse_split=4      " Open the file in window
+let g:netrw_altv=2              " Split the window to the right i.o. left
+let g:netrw_winsize=25
+let g:netrw_sort_sequence='[\/]$,*'
+let g:netrw_banner=0
 
 " Use the :SW command to write as sudo
 command SW w !sudo tee % > /dev/null
