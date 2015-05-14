@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +46,9 @@ let g:netrw_altv=2              " Split the window to the right i.o. left
 let g:netrw_winsize=25
 let g:netrw_sort_sequence='[\/]$,*'
 let g:netrw_banner=0
+
+" Markdown
+let g:markdown_fenced_languages = ['php', 'python', 'erlang', 'shell=sh', 'html', 'css', 'javascript', 'js=javascript', 'json=javascript']
 
 " Use the :SW command to write as sudo
 command SW w !sudo tee % > /dev/null
