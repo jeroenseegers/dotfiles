@@ -1,4 +1,18 @@
 set nocompatible                " Kill VI compatibility
+filetype off                    " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'altercation/vim-colors-solarized'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 set number                      " Show line numbers
 set numberwidth=5               " Number of columns to use for the line number
@@ -7,10 +21,6 @@ syntax on                       " Enable syntax highlighting
 set background=dark             " Enable dark background
 colorscheme solarized           " Enable the Solarized colorscheme
 set cursorline                  " Highlight the screen line of the cursor
-
-filetype on                     " Trigger the FileType autocommands
-filetype plugin on
-filetype indent on
 
 set laststatus=2                " When the last window will use a status line (0: never, 1: at least two windows, 2: always)
 
