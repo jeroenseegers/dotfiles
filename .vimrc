@@ -1,7 +1,3 @@
-" Load Pathogen (https://github.com/tpope/vim-pathogen)
-call pathogen#infect()
-call pathogen#helptags()
-
 set nocompatible                " Kill VI compatibility
 
 set number                      " Show line numbers
