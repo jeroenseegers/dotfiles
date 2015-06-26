@@ -9,8 +9,15 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
+Plugin 'joonty/vdebug.git'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,8 +60,28 @@ let g:markdown_fenced_languages = ['php', 'python', 'erlang', 'shell=sh', 'html'
 " Use the :SW command to write as sudo
 command SW w !sudo tee % > /dev/null
 
+" Open NerdTREE if no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Open NerdTREE with <ctrl>+<n>
+map <C-n> :NERDTreeToggle<CR>
+
+" Close NerdTREE if it's the only buffer left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Activate CtrlP By pressing <c-p>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" Ignore certain files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_working_path_mode = 'ra'
+
 " Load external settings
 source ~/.vim/config/statusline.vim
+
+let g:airline_powerline_fonts = 1
 
 " Allow overriding any of these settings
 if filereadable(expand("~/.vimrc.local"))
