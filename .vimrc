@@ -18,6 +18,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
+Plugin 'unblevable/quick-scope'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +51,6 @@ set titlestring=%F
 let g:netrw_liststyle=3         " Use the tree listingstyle
 let g:netrw_browse_split=4      " Open the file in window
 let g:netrw_altv=2              " Split the window to the right i.o. left
-let g:netrw_winsize=25
 let g:netrw_sort_sequence='[\/]$,*'
 let g:netrw_banner=0
 
@@ -70,6 +70,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Close NerdTREE if it's the only buffer left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" Change size of NERDTree window
+let g:NERDTreeWinSize = 45
+
 " Activate CtrlP By pressing <c-p>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -86,4 +89,34 @@ let g:airline_powerline_fonts = 1
 " Allow overriding any of these settings
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
+endif
+
+if !empty(glob("~/.vim/bundle/quick-scope"))
+    function! Quick_scope_selective(movement)
+        let needs_disabling = 0
+        if !g:qs_enable
+            QuickScopeToggle
+            redraw
+            let needs_disabling = 1
+        endif
+
+        let letter = nr2char(getchar())
+
+        if needs_disabling
+            QuickScopeToggle
+        endif
+
+        return a:movement . letter
+    endfunction
+
+    let g:qs_enable = 0
+
+    nnoremap <expr> <silent> f Quick_scope_selective('f')
+    nnoremap <expr> <silent> F Quick_scope_selective('F')
+    nnoremap <expr> <silent> t Quick_scope_selective('t')
+    nnoremap <expr> <silent> T Quick_scope_selective('T')
+    vnoremap <expr> <silent> f Quick_scope_selective('f')
+    vnoremap <expr> <silent> F Quick_scope_selective('F')
+    vnoremap <expr> <silent> t Quick_scope_selective('t')
+    vnoremap <expr> <silent> T Quick_scope_selective('T')
 endif

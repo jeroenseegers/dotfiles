@@ -15,7 +15,7 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Custom shell prompt
-export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w"
+export PS1="\[\033[38;32m\]\u@\h\[\033[01;34m\] \w"
 if [ $(type -t __git_ps1) ]; then
     # Shell prompt as shared by Thomas Ferreira
     # http://coderwall.com/p/fr79pa
